@@ -2,8 +2,8 @@ const videoBlockBody = document.querySelector( '.video-block__body' )
 const videoBlockHeader = document.querySelector( '.video-block__header' )
 const videoBLockDispatchedImage = document.querySelector( '.video-block__cutted-image.video-block__dispatched_top' )
 const videoBlock = document.querySelector( '.video-block' )
-const cuttedLeftImage = document.querySelector( '.video-block__cutted-image:first-child' )
-const cuttedRightImage = document.querySelector( '.video-block__cutted-image:nth-child(2)' )
+const cuttedLeftImage = document.querySelector( '.video-block__cutted-image:first-child img' )
+const cuttedRightImage = document.querySelector( '.video-block__cutted-image:nth-child(2) img' )
 const youtubeVideoId = document.querySelector( '.video-block__video-id' ).value
 const delayForVideoAppear = 2000
 const videoBlockNavigationButtons = document.querySelectorAll( '.video-block__navigation-item' )
@@ -49,10 +49,6 @@ function joinVideoBlockToPlayer( event ) {
 
 function buildYoutubePlayer() {
 	var player = document.createElement( 'iframe' )
-	//<iframe width="560" height="315" src="https://www.youtube.com/embed/4KcMxpXDEi0" title="YouTube video player"
-	// frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope;
-	// picture-in-picture" allowfullscreen></iframe>
-
 
 	player.setAttribute( 'width', videoBlock.clientWidth )
 	player.setAttribute( 'height', cuttedLeftImage.offsetHeight )
