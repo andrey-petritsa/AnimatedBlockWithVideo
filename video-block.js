@@ -6,9 +6,11 @@ const cuttedLeftImage = document.querySelector( '.video-block__cutted-image:firs
 const cuttedRightImage = document.querySelector( '.video-block__cutted-image:nth-child(2)' )
 const youtubeVideoId = document.querySelector( '.video-block__video-id' ).value
 const delayForVideoAppear = 2000
-
 const videoBlockNavigationButtons = document.querySelectorAll( '.video-block__navigation-item' )
-player = getYoutubePlayer()
+
+
+player = buildYoutubePlayer()
+insertVideoPlayerToBody()
 
 
 videoBlockNavigationButtons.forEach( ( videoBlockNavigationButton ) => {
@@ -40,19 +42,22 @@ function joinVideoBlockToPlayer( event ) {
 		videoBlockHeader.classList.remove( 'video-block__dispatched_top' )
 		videoBLockDispatchedImage.classList.remove( 'video-block__dispatched_top' )
 
-		setTimeout( insertVideoPlayerToBody, delayForVideoAppear )
 		setTimeout( deleteImages, delayForVideoAppear )
+		setTimeout( showYoutubePlayer, delayForVideoAppear )
 	}
 }
 
-function getYoutubePlayer() {
+function buildYoutubePlayer() {
 	var player = document.createElement( 'iframe' )
-	//<iframe width="560" height="315" src="https://www.youtube.com/embed/4KcMxpXDEi0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+	//<iframe width="560" height="315" src="https://www.youtube.com/embed/4KcMxpXDEi0" title="YouTube video player"
+	// frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope;
+	// picture-in-picture" allowfullscreen></iframe>
 
 
 	player.setAttribute( 'width', videoBlock.clientWidth )
 	player.setAttribute( 'height', cuttedLeftImage.offsetHeight )
 	player.setAttribute( 'src', `https://www.youtube.com/embed/${youtubeVideoId}` )
+	player.style.cssText = 'display: none;'
 	return player
 }
 
@@ -63,6 +68,10 @@ function insertVideoPlayerToBody() {
 function deleteImages() {
 	cuttedLeftImage.remove()
 	cuttedRightImage.remove()
+}
+
+function showYoutubePlayer() {
+	player.style.cssText = 'display: block'
 }
 
 window.addEventListener( 'scroll', joinVideoBlockToPlayer )
