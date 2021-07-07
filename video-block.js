@@ -62,8 +62,8 @@ function insertVideoPlayerToBody() {
 }
 
 function deleteImages() {
-	cuttedLeftImage.remove()
-	cuttedRightImage.remove()
+	cuttedLeftImage.parentElement.remove()
+	cuttedRightImage.parentElement.remove()
 }
 
 function showYoutubePlayer() {
