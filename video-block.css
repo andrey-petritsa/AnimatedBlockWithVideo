@@ -169,12 +169,12 @@
 }
 
 @media (max-width: 762px) {
-    .video-block__navigation ul {
-        flex-direction: column;
-    }
-
     .video-block__cutted-image img {
         height: 58%;
+    }
+
+    .video-block__header {
+        margin: 0 0 10px 0;
     }
 
     .video-block__body {
