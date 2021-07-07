@@ -25,6 +25,7 @@
 
 .video-block a {
     color: black;
+    text-decoration: none;
 }
 
 .video-block__header {
